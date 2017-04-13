@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<!-- 这是view  -->
+		<div id="app1">
+			{{message}}
+		</div>
+		<div id="app2">
+			<p :title="msg">鼠标移到这里来</p>
+		</div>
+	</body>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		//这是我们的model
+		var exampleData = {
+			message: 'Hello World!'
+		}
+		//创建一个vue实例 viewModel
+		//连接 view 和model
+		var v1 = new Vue({
+			el: '#app1',
+			data: exampleData
+		});
+
+		var v2 = new Vue({
+			el: '#app2',
+			data: {
+				msg: '页面加载于'+ new Date()
+			}
+
+		})
+	</script>
+
+</html>

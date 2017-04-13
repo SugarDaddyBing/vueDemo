@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+	<body>
+		<!--
+        	作者：774153195@qq.com
+        	时间：2017-04-12
+        	描述：view
+        -->
+		<div id="app">
+			<p>{{message}}</p>
+			<input type="text" v-model="message" />
+
+			<input type="checkbox" v-model="checked" />
+			<label for="checkbox">{{checked}}</label>
+			
+		</div>
+
+	</body>
+	<script>
+		// 这是我们的Model
+		var exampleData = {
+			message: 'Hello World!',
+			checked: '',
+			
+		}
+
+		// 创建一个 Vue 实例或 "ViewModel"
+		// 它连接 View 与 Model
+		new Vue({
+			el: '#app',
+			data: exampleData
+		})
+	</script>
+
+</html>

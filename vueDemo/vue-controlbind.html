@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app1">
+			<input type="checkbox" id="" value="S" v-model="checked" />
+			<br /> {{checked}}
+		</div>
+		<div id="app2">
+			<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+			<label for="jack">Jack</label>
+			<input type="checkbox" id="john" value="John" v-model="checkedNames">
+			<label for="john">John</label>
+			<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+			<label for="mike">Mike</label>
+			<br>
+			<span>Checked names: {{ checkedNames }}</span>
+		</div>
+		<div id="app3">
+			<input type="radio" id="one" value="One" v-model="picked">
+			<label for="one">One</label>
+			<br>
+			<input type="radio" id="two" value="Two" v-model="picked">
+			<label for="two">Two</label>
+			<br>
+			<span>Picked: {{ picked }}</span>
+		</div>
+		<div id="app4">
+			<select v-model="selected">
+				<option>A</option>
+				<option>B</option>
+				<option>C</option>
+			</select>
+			<br /> {{selected}}
+		</div>
+		<div id="app5">
+			<select v-model="selected">
+				<option :value="option.value" v-for="option in options">
+					{{option.text}}
+				</option>
+			</select>
+			<span>Selected:{{selected}}</span>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script>
+			var v1 = new Vue({
+				el: '#app1',
+				data: {
+					checked: false
+				}
+			});
+
+			var v2 = new Vue({
+				el: '#app2',
+				data: {
+					checkedNames: []
+				}
+			});
+
+			var v3 = new Vue({
+				el: '#app3',
+				data: {
+					picked: ''
+				}
+			});
+
+			var v4 = new Vue({
+				el: '#app4',
+				data: {
+					selected: []
+				}
+			});
+
+			var v5 = new Vue({
+				el: '#app5',
+				data: {
+					selected: '',
+					options: [{
+							text: 'One',
+							value: 'A'
+						},
+						{
+							text: 'Two',
+							value: 'B'
+						},
+						{
+							text: 'Three',
+							value: 'C'
+						}
+					]
+				}
+			});
+		</script>
+	</body>
+
+</html>

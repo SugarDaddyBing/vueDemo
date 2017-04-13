@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.red {
+				background-color: red;
+			}
+			
+			.green {
+				background-color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<!--
+            	作者：774153195@qq.com
+            	时间：2017-04-13
+            	描述：v-if else show
+            -->
+			<h1 v-if="name.indexOf('wby') >=0">Name:{{ name }}</h1>
+			<h1 v-else>Name:没有wby</h1>
+			<h2 v-show="age > 18">成年人</h2>
+			<!--
+        	作者：774153195@qq.com
+        	时间：2017-04-13
+        	描述：v-for
+        -->
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Sex</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="person in people">
+						<td>{{ person.name }}</td>
+						<td>{{ person.age }}</td>
+						<td>{{ person.sex }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--
+            	作者：774153195@qq.com
+            	时间：2017-04-13
+            	描述：v-on  
+            -->
+			<button v-on:click="greet">Greet</button>
+			<button @click="say('GOOD')">Say</button>
+			<!--
+            	作者：774153195@qq.com
+            	时间：2017-04-13
+            	描述：v-bind   是用来attribute
+            -->
+			<input type="text" v-bind:class="age>=18?'red':'green'" v-model="boom" />
+			<input type="text" :class="age<18?'red':'green'" v-model="boom" />
+			<p>{{boom}}</p>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					name: 'SSwby',
+					age: 18,
+					boom: '',
+					people: [{
+							name: 'A',
+							age: 8,
+							sex: '男'
+						},
+						{
+							name: 'B',
+							age: 10,
+							sex: '女'
+						},
+						{
+							name: 'C',
+							age: 7,
+							sex: '女'
+						},
+						{
+							name: 'D',
+							age: 9,
+							sex: '男'
+						}
+					]
+				},
+
+				methods: {
+					greet: function() {
+						alert('Hello!' + this.name)
+					},
+					say: function(msg) {
+						alert(msg)
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>
